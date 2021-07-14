@@ -59,6 +59,8 @@ Resources:
           aws s3 cp s3://udacity-demo-1/udacity.zip .
           unzip -o udacity.zip
       ImageId: ami-0dc2d3e4c0f9ebd18
+      IamInstanceProfile:
+        Fn::ImportValue: !Sub "${EnvironmentName}-IAM-NAME"
       SecurityGroups:
         - Ref: WebServerSecGroup
       InstanceType: t3.small
